@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var PropTypes = require('prop-types');
 
 class Badge extends React.Component {
   render() {
@@ -17,11 +18,17 @@ class Badge extends React.Component {
   }
 }
 
+Badge.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
+}
+
 ReactDOM.render(
   <Badge 
     name="Jigyasu Arya"
     username="lastnamearya"
-    img="https://avatars3.githubusercontent.com/u/6664187?s=400&u=e56c1cfc515eb5e093bb9b0437765c5af86850a8&v=4"
+    img={"https://avatars3.githubusercontent.com/u/6664187?s=400&u=e56c1cfc515eb5e093bb9b0437765c5af86850a8&v=4"}
   />,
   document.getElementById('app')
 );
