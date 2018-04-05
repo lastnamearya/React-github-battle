@@ -44,7 +44,7 @@ class Users extends React.Component {
 
 // We can be more specific with PropTypes
 Users.propTypes = {
-  list: PropTypes.array.isRequired
+  list: PropTypes.arrayOf(PropTypes.object),
 }
 
 class Badge extends React.Component {
@@ -80,12 +80,8 @@ Badge.propTypes = {
 
 ReactDOM.render(
   <Users list = {[
-    { name: 'Tyler', friend: true },
-    { name: 'Ryan', friend: true },
-    { name: 'Michael', friend: false },
-    { name: 'Mikenzi', friend: false },
-    { name: 'Jessica', friend: true },
-    { name: 'Dan', friend: false }
+    'Tyler',
+    'Ryan'
   ]}
   />,
   document.getElementById('app')
