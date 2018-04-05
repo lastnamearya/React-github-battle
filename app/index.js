@@ -42,9 +42,12 @@ class Users extends React.Component {
   }
 }
 
-// We can be more specific with PropTypes
+// We can be more specific with PropTypes using PropTypes.shape
 Users.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object),
+  list: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    friend: PropTypes.bool.isRequired,
+  })),
 }
 
 class Badge extends React.Component {
@@ -80,8 +83,12 @@ Badge.propTypes = {
 
 ReactDOM.render(
   <Users list = {[
-    'Tyler',
-    'Ryan'
+    { name: 'Tyler', friend: true },
+    { name: 'Ryan', friend: true },
+    { name: 'Michael', friend: false },
+    { name: 'Mikenzi', friend: false },
+    { name: 'Jessica', friend: true },
+    { name: 'Dan', friend: false }
   ]}
   />,
   document.getElementById('app')
