@@ -65,7 +65,7 @@ class Users extends React.Component {
 }
 
 Users.propTypes = {
-  list: PropTypes.array.isRequired,
+  list: PropTypes.arrayOf(PropTypes.object),
 }
 
 // ReactDOM.render(
