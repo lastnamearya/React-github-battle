@@ -1,8 +1,8 @@
-var React = require ('react');
+var React = require('react');
 var Popular = require('./Popular');
 
-class App extends React.Component {
-  render() {
+class App extends React.Component{
+  render(){
     return (
       <div className="container">
         <Popular />
@@ -11,4 +11,5 @@ class App extends React.Component {
   }
 }
 
+// This is called common.js
 module.exports = App;
