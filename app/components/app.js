@@ -18,7 +18,8 @@ class App extends React.Component{
           {/* Instead of rendering all active routes, Switch will render only one specific Route */}
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/battle' component={Battle} />
+            {/* added exact to battle because it has some default view associated */}
+            <Route exact path='/battle' component={Battle} />
             <Route path='/popular' component={Popular} />
             {/* If none of above component is active */}
             <Route render={function() {
