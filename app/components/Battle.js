@@ -99,6 +99,10 @@ PlayerInput.propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
 
+PlayerInput.defaultProps = {
+  label: 'Username',
+}
+
 class Battle extends React.Component{
   constructor(props) {
     super(props);
