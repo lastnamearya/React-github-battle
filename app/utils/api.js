@@ -30,6 +30,17 @@ function getStarCount (repos) {
   }, 0);
 }
 
+// Calculate Score
+
+function calculateScore (profile, repos) {
+  var followers = profile.followers;
+  var totalStars = getStarCount(repos);
+
+  return (followers * 3) + totalStars;
+}
+
+
+
 
 
 module.exports = {
