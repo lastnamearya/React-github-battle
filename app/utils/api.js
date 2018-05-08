@@ -39,6 +39,31 @@ function calculateScore (profile, repos) {
   return (followers * 3) + totalStars;
 }
 
+// Handle Error ~ if there's error with our API request
+
+function handleError (error) {
+  console.warn(error);
+  return null;
+}
+
+// Composing functions into one function
+
+function getUserData (player) {
+  // axios.all can take array of promises 
+  return axios.all([
+    getProfile(player),
+    getRepos(player)
+  ]).then(function (data) {
+    var profile = data[0];
+    var repos = data[1];
+
+    // Return an object with the user information  
+    return {
+      profile: profile,
+      score: calculateScore(profile, repos)
+    }
+  })
+}
 
 
 
