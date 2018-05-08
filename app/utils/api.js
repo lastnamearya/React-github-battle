@@ -65,13 +65,22 @@ function getUserData (player) {
   })
 }
 
+// Sort Players ~ passing an array of players
 
+function sortPlayers (players) {
+  // Return a brand new array (sorted by calculateScore)
+  return players.sort(function (a, b) {
+    return b.score - a.score;
+  });
+}
 
 
 module.exports = {
   // passing array of two players, not going to return the info about the player, but also the winner
   battle: function(players){ 
-
+    return axios.all(players.map(getUserData))
+      .then(sortPlayers)
+      .catch(handleError)
   }, 
 
   fetchPopularRepos: function (language) {
