@@ -1,14 +1,14 @@
 var axios = require('axios');
 
-var id = "3b925c08aab40ac38d05";
-var sec = "31be1b1285e20f238e8777adb3bc11907739a47b";
+var id = "e06e8bb1440c9c7dbd81";
+var sec = "0ce083ba92dfc1212af5e42f52d6477f707dc0fa";
 var params = "?client_id=" + id + "&client_secret=" + sec;
 
 // Get User Profile
 
 function getProfile (username) {
   // Axios will return a promise after that, this request will get us an object
-  return axios.get('https://api.github.com/users' + username + params)
+  return axios.get('https://api.github.com/users/' + username + params)
     // passing return data object ~ user to get filtered data (property)
     .then(function(user){
       // Formatting data before we pass it back
@@ -19,7 +19,7 @@ function getProfile (username) {
 // Get Repos
 
 function getRepos (username) {
-  return axios.get('https://api.github.com/users' + username + '/repos' + params + '&per_page=100')
+  return axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100')
 }
 
 // Get Stars Count
