@@ -25,4 +25,12 @@ class Loading extends React.Component {
   }
 }
 
+Loading.propTypes = {
+  text: PropTypes.string.isRequired,
+}
+
+Loading.defaultProps = {
+  text: 'Loading'
+};
+
 module.exports = Loading;
