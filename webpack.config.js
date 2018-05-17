@@ -1,7 +1,10 @@
 // path ~ basically bunch of utilities to work with, comes with nodes
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
+var webpack = require('webpack');
+
+
+var config = {
   entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,12 +20,24 @@ module.exports = {
   },
   // Now our app instead of requesting assests from server, just redirect to the target component then React Router will see that and load the Route for e.g /popular
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/index.html'
     })
-  ],
-  mode: "development"
-}; 
+  ]
+};
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  )
+}
+
+module.exports = config;
